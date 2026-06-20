@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2D Minecraft</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <section id="landing-page" class="landing-page">
+  <div class="landing-card">
+    <img src="images/logo.png" alt="Minecraft Logo" class="logo">
+
+    <p>
+        Mine blocks, collect resources, and build your own world.
+    </p>
+
+    <div class="instructions">
+        <h2>How to Play</h2>
+        <p><strong>Axe</strong> removes trees</p>
+        <p><strong>Pickaxe</strong> removes rocks</p>
+        <p><strong>Shovel</strong> removes dirt</p>
+        <p>Collected blocks go to your inventory</p>
+    </div>
+
+    <button id="start-btn">Start Game</button>
+    </div>
+  </section>
+
+  <section id="game-page" class="game-page hidden">
+    <header class="game-header">
+      <h1>2D Minecraft</h1>
+      <button id="reset-btn">Reset World</button>
+    </header>
+
+    <main class="game-layout">
+     <aside class="toolbar">
+        <h2>Tools</h2>
+        <button class="tool" data-tool="axe">
+            <img src="images/axe.png" alt="Axe icon" />
+            <span>Axe</span>
+        </button>
+
+        <button class="tool" data-tool="pickaxe">
+            <img src="images/pickaxe.png" alt="Pickaxe icon" />
+            <span>Pickaxe</span>
+        </button>
+
+        <button class="tool" data-tool="shovel">
+            <img src="images/shovel.png" alt="Shovel icon" />
+            <span>Shovel</span>
+        </button>
+     </aside>
+    </main>
+  </section>
+
+  <script src="script.js"></script>
+  
+</body>
+</html>
