@@ -52,35 +52,35 @@
       </ul>
     </div>
   </div>
-
+  
 </section>
+ <main class="game-layout">
 
-  <section id="game-page" class="game-page hidden">
-    <header class="game-header">
-      <h1>2D Minecraft</h1>
-      <button id="reset-btn">Reset World</button>
-    </header>
+  <aside class="toolbar">
+    <h2>Tools</h2>
 
-    <main class="game-layout">
-     <aside class="toolbar">
-        <h2>Tools</h2>
-        <button class="tool" data-tool="axe">
-            <img src="images/axe.png" alt="Axe icon" />
-            <span>Axe</span>
-        </button>
+    <button class="tool" data-tool="axe">
+      <img src="images/axe.png" alt="Axe icon">
+      <span>Axe</span>
+    </button>
 
-        <button class="tool" data-tool="pickaxe">
-            <img src="images/pickaxe.png" alt="Pickaxe icon" />
-            <span>Pickaxe</span>
-        </button>
+    <button class="tool" data-tool="pickaxe">
+      <img src="images/pickaxe.png" alt="Pickaxe icon">
+      <span>Pickaxe</span>
+    </button>
 
-        <button class="tool" data-tool="shovel">
-            <img src="images/shovel.png" alt="Shovel icon" />
-            <span>Shovel</span>
-        </button>
-     </aside>
-    </main>
+    <button class="tool" data-tool="shovel">
+      <img src="images/shovel.png" alt="Shovel icon">
+      <span>Shovel</span>
+    </button>
+  </aside>
+
+  <section class="world-section">
+    <div id="world" class="world"></div>
   </section>
+
+</main>
+    
   <script src="js/script.js"></script>
 </body>
 </html>
