@@ -136,6 +136,132 @@ body {
   object-fit: contain;
 }
 
+.game-page {
+  min-height: 100vh;
+  background: #1b1b1b;
+  color: white;
+}
+
+.game-header {
+  height: 70px;
+  padding: 0 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.game-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 25px 40px;
+}
+
+.toolbar {
+  width: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.toolbar h2 {
+  font-family: 'Minecraft', Arial, sans-serif;
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+
+.tool {
+  width: 86px;
+  height: 86px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  color: white;
+  font-family: 'Minecraft', Arial, sans-serif;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+.toolbar-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.action-btn {
+  width: 45px;
+  height: 45px;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: all 0.25s ease;
+}
+
+.action-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+  transition: all 0.25s ease;
+}
+
+.action-btn:hover {
+  transform: translateY(-3px) scale(1.15);
+}
+
+.action-btn:hover img {
+  filter: drop-shadow(0 0 10px #f7d45c);
+}
+
+.action-btn:active {
+  transform: scale(0.92);
+}
+
+.tool img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.tool span {
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+.tool:hover {
+  transform: scale(1.12);
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.7));
+}
+
+.tool.selected {
+  transform: scale(1.18);
+  filter: drop-shadow(0 0 12px #f7d45c);
+}
+
+.tool.selected span {
+  color: #f7d45c;
+  opacity: 1;
+  font-weight: bold;
+}
+
 .world {
   display: grid;
   grid-template-columns: repeat(10, 60px);
@@ -168,4 +294,8 @@ body {
 
 .leaf {
   background: darkgreen;
+}
+.selected {
+  border: 5px solid yellow;
+  transform: scale(1.05);
 }

@@ -52,11 +52,25 @@
       </ul>
     </div>
   </div>
-  
+
 </section>
+
+<section id="game-page" class="game-page hidden">
+
  <main class="game-layout">
 
   <aside class="toolbar">
+
+  <div class="toolbar-actions">
+    <button id="home-btn" class="action-btn" title="Back to Home">
+      <img src="images/homepage.png" alt="Home">
+    </button>
+
+    <button id="reset-btn" class="action-btn" title="Reset World">
+      <img src="images/reset.png" alt="Reset">
+    </button>
+  </div>
+
     <h2>Tools</h2>
 
     <button class="tool" data-tool="axe">
@@ -73,6 +87,11 @@
       <img src="images/shovel.png" alt="Shovel icon">
       <span>Shovel</span>
     </button>
+
+    <button class="tool" data-tool="inventory">
+      <img src="images/inventory.png" alt="inventory icon">
+      <span>inventory</span>
+    </button>
   </aside>
 
   <section class="world-section">
@@ -80,7 +99,7 @@
   </section>
 
 </main>
-    
+</section>
   <script src="js/script.js"></script>
 </body>
 </html>

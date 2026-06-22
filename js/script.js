@@ -66,3 +66,32 @@ function renderWorld() {
 }
 
 renderWorld();
+
+let selectedTool = null;
+
+const tools = document.querySelectorAll(".tool");
+
+tools.forEach(tool => {
+  tool.addEventListener("click", () => {
+
+    tools.forEach(t => {
+      t.classList.remove("selected");
+    });
+
+    tool.classList.add("selected");
+
+    selectedTool = tool.dataset.tool;
+
+    console.log("Selected tool:", selectedTool);
+  });
+});
+const homeBtn = document.querySelector("#home-btn");
+
+homeBtn.addEventListener("click", () => {
+  playClickSound();
+
+  setTimeout(() => {
+    gamePage.classList.add("hidden");
+    landingPage.classList.remove("hidden");
+  }, 300);
+});
