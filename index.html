@@ -4,29 +4,56 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2D Minecraft</title>
+  <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
+                
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <section id="landing-page" class="landing-page">
-  <div class="landing-card">
-    <img src="images/logo.png" alt="Minecraft Logo" class="logo">
+ <section id="landing-page" class="landing-page">
 
-    <p>
-        Mine blocks, collect resources, and build your own world.
-    </p>
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="images/live_background.mp4" type="video/mp4">
+  </video>
 
-    <div class="instructions">
-        <h2>How to Play</h2>
-        <p><strong>Axe</strong> removes trees</p>
-        <p><strong>Pickaxe</strong> removes rocks</p>
-        <p><strong>Shovel</strong> removes dirt</p>
-        <p>Collected blocks go to your inventory</p>
+  <div class="landing-overlay"></div>
+
+  <div class="menu-container">
+    <img src="images/logo.png" alt="2D Minecraft Logo" class="logo">
+
+    <button id="start-btn" class="menu-btn">Craft your Adventure</button>
+    <button id="how-to-play-btn" class="menu-btn secondary-btn">Getting started</button>
+  </div>
+
+<div id="how-to-play-modal" class="modal">
+      <div class="modal-content">
+      <button id="close-modal-btn" class="close-btn">×</button>
+
+      <ul class="rules-list">
+        <li>
+          <img src="images/axe.png" alt="Axe icon">
+          <span>Use the Axe to collect trees.</span>
+        </li>
+
+        <li>
+          <img src="images/pickaxe.png" alt="Pickaxe icon">
+          <span>Use the Pickaxe to collect rocks.</span>
+        </li>
+
+        <li>
+          <img src="images/shovel.png" alt="Shovel icon">
+          <span>Use the Shovel to collect dirt.</span>
+        </li>
+
+        <li>
+          <img src="images/inventory.png" alt="Inventory icon">
+          <span>Collected blocks are saved in your inventory.</span>
+        </li>
+      </ul>
     </div>
+  </div>
 
-    <button id="start-btn">Start Game</button>
-    </div>
-  </section>
+</section>
 
   <section id="game-page" class="game-page hidden">
     <header class="game-header">
@@ -54,8 +81,6 @@
      </aside>
     </main>
   </section>
-
-  <script src="script.js"></script>
-  
+  <script src="js/script.js"></script>
 </body>
 </html>
