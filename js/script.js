@@ -7,6 +7,9 @@ const howToPlayModal = document.querySelector("#how-to-play-modal");
 const closeModalBtn = document.querySelector("#close-modal-btn");
 
 const clickSound = new Audio("sounds/click.mp3");
+const homeBtn = document.querySelector("#home-btn");
+const resetBtn = document.querySelector("#reset-btn");
+
 
 function playClickSound() {
   clickSound.currentTime = 0;
@@ -50,6 +53,7 @@ const worldMatrix = [
   ["diamond","diamond","diamond","stone","diamond","diamond","diamond","stone","diamond","diamond","diamond","diamond","diamond","stone","diamond","diamond","diamond","diamond","diamond","stone","diamond","stone"],
   ["yellow_diamond","stone","yellow_diamond","yellow_diamond","stone","yellow_diamond","yellow_diamond","yellow_diamond","stone","yellow_diamond","yellow_diamond","yellow_diamond","stone","yellow_diamond","yellow_diamond","yellow_diamond","yellow_diamond","yellow_diamond","stone","yellow_diamond","yellow_diamond","stone"],
 ];
+const originalWorld = JSON.parse(JSON.stringify(worldMatrix));
 
 function renderWorld() {
   const world = document.querySelector("#world");
@@ -135,7 +139,6 @@ tools.forEach(tool => {
     console.log("Selected tool:", selectedTool);
   });
 });
-const homeBtn = document.querySelector("#home-btn");
 
 homeBtn.addEventListener("click", () => {
   playClickSound();
@@ -144,4 +147,16 @@ homeBtn.addEventListener("click", () => {
     gamePage.classList.add("hidden");
     landingPage.classList.remove("hidden");
   }, 300);
+});
+
+resetBtn.addEventListener("click", () => {
+  playClickSound();
+
+  for (let row = 0; row < worldMatrix.length; row++) {
+    for (let col = 0; col < worldMatrix[row].length; col++) {
+      worldMatrix[row][col] = originalWorld[row][col];
+    }
+  }
+
+  renderWorld();
 });
