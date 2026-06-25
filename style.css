@@ -262,40 +262,143 @@ body {
   font-weight: bold;
 }
 
+.world-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .world {
   display: grid;
-  grid-template-columns: repeat(10, 60px);
+  grid-template-columns: repeat(22, 60px);
+  border: 4px solid rgba(255, 255, 255, 0.2);
 }
 
 .tile {
   width: 60px;
   height: 60px;
+  background-size: cover;
+  background-position: center;
+  image-rendering: pixelated;
 }
-
 .sky {
-  background: skyblue;
+  background-image: url("images/sky.jpg");
+}
+.cloud{
+  background-image: url("images/cloud.jpg");
 }
 
 .grass {
-  background: green;
+  background-image: url("images/grass.jpg");
 }
+.wood {
+  background-image: url("images/wood.jpg");
 
+}
+.leef {
+  background-image: url("images/leef.jpg");
+}
 .dirt {
-  background: #7a4e2d;
+  background-image: url("images/dirt.jpg");
 }
 
 .stone {
-  background: gray;
+  background-image: url("images/stone.jpg");
 }
 
-.wood {
-  background: #8b5a2b;
+.diamond {
+  background-image: url("images/diamond.webp");
+}
+.green_diamond {
+  background-image: url("images/green_diamond.jpg");
+}
+.red_diamond {
+  background-image: url("images/red_diamond.webp");
+}
+.yellow_diamond {
+  background-image: url("images/yellow_diamond.webp");
+}
+.world-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-.leaf {
-  background: darkgreen;
+.world-wrapper {
+  position: relative;
+  width: fit-content;
 }
-.selected {
-  border: 5px solid yellow;
-  transform: scale(1.05);
+
+.world {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(22, 60px);
+  border: 4px solid rgba(255, 255, 255, 0.2);
+}
+
+.world-object {
+  position: absolute;
+  z-index: 10;
+  image-rendering: pixelated;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* positions over the matrix */
+.fire {
+  width: 60px;
+  left: 600px;
+  top: 428px;
+}
+
+.fire_wood {
+  width: 40px;
+  left: 670px;
+  top: 445px;
+}
+.fire_wood2 {
+  width: 40px;
+  left: 550px;
+  top: 445px;
+}
+.steve {
+  width: 120px;
+  left: 100px;
+  top: 375px;
+}
+
+.dog {
+  width: 75px;
+  left: 350px;
+  top: 365px;
+}
+
+.bee {
+  width: 50px;
+  left: 500px;
+  top: 180px;
+}
+
+.tnt {
+  width: 60px;
+  left: 1100px;
+  top: 425px;
+}
+
+.rose {
+  width: 80px;
+  left: 300px;
+  top: 400px;
+}
+
+.herb {
+  width: 45px;
+  left: 920px;
+  top: 450px;
+}
+.herb2 {
+  width: 45px;
+  left: 1020px;   /* Change this to move it left/right */
+  top: 450px;     /* Keep the same height */
 }
