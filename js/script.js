@@ -67,9 +67,52 @@ function renderWorld() {
       tile.dataset.row = rowIndex;
       tile.dataset.col = colIndex;
 
+      tile.addEventListener("click", function () {
+      handleTileClick(rowIndex, colIndex);
+    });
+
       world.appendChild(tile);
     });
   });
+}
+function canRemoveTile(tool, tileType) {
+  if (tool === "axe") {
+    return tileType === "wood" || tileType === "leaf";
+  }
+
+  if (tool === "pickaxe") {
+    return tileType === "stone";
+  }
+
+  if (tool === "shovel") {
+    return tileType === "dirt" || tileType ==="grass";
+  }
+
+  if (tool === "sword") {
+    return (
+      tileType === "diamond" ||
+      tileType === "green_diamond" ||
+      tileType === "red_diamond" ||
+      tileType === "yellow_diamond"
+    );
+  }
+
+  return false;
+}
+function handleTileClick(rowIndex, colIndex) {
+  const tileType = worldMatrix[rowIndex][colIndex];
+
+  if (!selectedTool) {
+    console.log("Choose a tool first");
+    return;
+  }
+
+  if (canRemoveTile(selectedTool, tileType)) {
+    worldMatrix[rowIndex][colIndex] = "sky";
+    renderWorld();
+  } else {
+    console.log("Wrong tool for this tile");
+  }
 }
 
 renderWorld();
