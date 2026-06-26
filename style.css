@@ -454,4 +454,62 @@ body {
   top: 450px;     /* Keep the same height */
 }
 
+@media (max-width: 1024px) {
+  body {
+  overflow-x: hidden;
+}
+.game-layout {
+  flex-direction: column;
+  align-items: stretch;
+  padding: 15px 0;
+  gap: 20px;
+}
+
+.world-section {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  justify-content: flex-start;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.world-wrapper {
+  min-width: max-content;
+}
+.toolbar {
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  width: 90%;
+  max-width: 650px;
+}
+.menu-btn {
+  font-size: 26px;
+}
+
+.secondary-btn {
+  font-size: 22px;
+}
+.modal-content {
+  width: 95%;
+}
+
+.rules-list li {
+  font-size: 18px;
+}
+
+.rules-list img {
+  width: 50px;
+  height: 50px;
+}
+.inventory-popup {
+  left: 50%;
+  transform: translateX(-50%);
+}
+}
 
