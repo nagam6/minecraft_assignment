@@ -1,3 +1,4 @@
+// DOM Elements
 const startBtn = document.querySelector("#start-btn");
 const landingPage = document.querySelector("#landing-page");
 const gamePage = document.querySelector("#game-page");
@@ -6,6 +7,7 @@ const howToPlayBtn = document.querySelector("#how-to-play-btn");
 const howToPlayModal = document.querySelector("#how-to-play-modal");
 const closeModalBtn = document.querySelector("#close-modal-btn");
 
+// Game Sounds
 const clickSound = new Audio("sounds/menu_click.mp3");
 const toolSound = new Audio("sounds/tool_click.mp3");
 
@@ -23,6 +25,7 @@ function playClickSound() {
     console.log("Menu Sound error:", error);
   });
 }
+
 function playToolSound() {
   toolSound.currentTime = 0;
 
@@ -31,6 +34,7 @@ function playToolSound() {
   });
 }
 
+// Landing Page Events
 startBtn.addEventListener("click", function () {
   playClickSound();
 
@@ -50,6 +54,7 @@ closeModalBtn.addEventListener("click", function () {
   howToPlayModal.classList.remove("active");
 });
 
+// Game World Matrix
 const worldMatrix = [
   ["sky","sky","sky","sky","sky","sky","sky","sky","sky","sky","sky","sky","sky","sky","sky","sky","sky","sky","sky","cloud","cloud","sky"],
   ["sky","sky","sky","sky","cloud","cloud","sky","sky","sky","sky","sky","cloud","cloud","sky","sky","sky","sky","sky","cloud","cloud","cloud","cloud"],
@@ -68,6 +73,7 @@ const worldMatrix = [
 ];
 const originalWorld = JSON.parse(JSON.stringify(worldMatrix));
 
+// Render Game World
 function renderWorld() {
   const world = document.querySelector("#world");
 
@@ -92,6 +98,8 @@ function renderWorld() {
     });
   });
 }
+
+// Tool Validation
 function canRemoveTile(tool, tileType) {
   if (tool === "axe") {
     return tileType === "wood" || tileType === "leaf";
@@ -113,9 +121,10 @@ function canRemoveTile(tool, tileType) {
       tileType === "yellow_diamond"
     );
   }
-
   return false;
 }
+
+// Handle Tile Click
 function handleTileClick(rowIndex, colIndex) {
   const tileType = worldMatrix[rowIndex][colIndex];
   if (selectedTool === "inventory" && selectedInventoryItem && tileType === "sky") {
@@ -130,7 +139,6 @@ function handleTileClick(rowIndex, colIndex) {
   renderInventory();
   return;
 }
-
   if (!selectedTool) {
     console.log("Choose a tool first");
     return;
@@ -150,6 +158,7 @@ renderWorld();
 let inventory = {};
 let selectedInventoryItem = null;
 
+// Inventory Management
 function addToInventory(tileType) {
   if (!inventory[tileType]) {
     inventory[tileType] = 0;
@@ -188,6 +197,7 @@ function renderInventory() {
 
 let selectedTool = null;
 
+// Tool Selection
 const tools = document.querySelectorAll(".tool");
 
 tools.forEach(function (tool) {
@@ -218,6 +228,7 @@ tools.forEach(function (tool) {
   });
 });
 
+// Navigation Buttons
 homeBtn.addEventListener("click", () => {
   playClickSound();
 
@@ -247,7 +258,7 @@ resetBtn.addEventListener("click", () => {
   inventoryPanel.classList.add("hidden");
 });
 
-
+// Inventory Popup
 inventoryBtn.addEventListener("click", function () {
   playToolSound();
   inventoryPanel.classList.toggle("hidden");
