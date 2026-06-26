@@ -6,15 +6,28 @@ const howToPlayBtn = document.querySelector("#how-to-play-btn");
 const howToPlayModal = document.querySelector("#how-to-play-modal");
 const closeModalBtn = document.querySelector("#close-modal-btn");
 
-const clickSound = new Audio("sounds/click.mp3");
+const clickSound = new Audio("sounds/menu_click.mp3");
+const toolSound = new Audio("sounds/tool_click.mp3");
+
 const homeBtn = document.querySelector("#home-btn");
 const resetBtn = document.querySelector("#reset-btn");
+
+const inventoryBtn = document.querySelector('[data-tool="inventory"]');
+const inventoryPanel = document.querySelector("#inventory-panel");
+const closeInventoryBtn = document.querySelector("#close-inventory-btn");
 
 
 function playClickSound() {
   clickSound.currentTime = 0;
   clickSound.play().catch(function (error) {
-    console.log("Sound error:", error);
+    console.log("Menu Sound error:", error);
+  });
+}
+function playToolSound() {
+  toolSound.currentTime = 0;
+
+  toolSound.play().catch(function (error) {
+    console.log("Tool sound error:", error);
   });
 }
 
@@ -134,7 +147,6 @@ renderWorld();
 
 renderWorld();
 
-let selectedTool = null;
 let inventory = {};
 let selectedInventoryItem = null;
 
@@ -173,36 +185,37 @@ function renderInventory() {
     }
   });
 }
-const inventoryBtn = document.querySelector('[data-tool="inventory"]');
-const inventoryPanel = document.querySelector("#inventory-panel");
 
-inventoryBtn.addEventListener("click", function () {
-  playClickSound();
-  inventoryPanel.classList.toggle("hidden");
-});
+let selectedTool = null;
 
 const tools = document.querySelectorAll(".tool");
 
-tools.forEach(tool => {
-  tool.addEventListener("click", () => {
+tools.forEach(function (tool) {
+  tool.addEventListener("click", function () {
 
-    tools.forEach(t => {
-      t.classList.remove("selected");
+    // Deselect the current tool
+    if (selectedTool === tool.dataset.tool) {
+      playToolSound();
+
+      tool.classList.remove("selected");
+      selectedTool = null;
+
+      console.log("No tool selected");
+      return;
+    }
+
+    // Select a new tool
+    tools.forEach(function (item) {
+      item.classList.remove("selected");
     });
 
     tool.classList.add("selected");
-
     selectedTool = tool.dataset.tool;
+
+    playToolSound();
 
     console.log("Selected tool:", selectedTool);
   });
-});
-
-const closeInventoryBtn = document.querySelector("#close-inventory-btn");
-
-closeInventoryBtn.addEventListener("click", function () {
-  playClickSound();
-  inventoryPanel.classList.add("hidden");
 });
 
 homeBtn.addEventListener("click", () => {
@@ -231,5 +244,16 @@ resetBtn.addEventListener("click", () => {
   // Update the UI
   renderWorld();
   renderInventory();
+  inventoryPanel.classList.add("hidden");
+});
+
+
+inventoryBtn.addEventListener("click", function () {
+  playToolSound();
+  inventoryPanel.classList.toggle("hidden");
+});
+
+closeInventoryBtn.addEventListener("click", function () {
+  playClickSound();
   inventoryPanel.classList.add("hidden");
 });
