@@ -1,55 +1,64 @@
-# Minecraft 2D
+# 2D Minecraft Game
 
-## Description
-
-This project is a 2D Minecraft-inspired game built using HTML, CSS, and JavaScript.
-
-The game allows players to collect resources from the world using different tools and place those resources back into the world using an inventory system.
-
-The project was created as part of a weekend assignment to practice DOM manipulation, event handling, game logic, and responsive web design.
+A browser-based **2D Minecraft-inspired game** built with **HTML, CSS, and JavaScript** using **DOM manipulation** and a **matrix-based world**.
 
 ## Features
 
-* Landing page with game instructions
-* Tool selection system
-* World generated from JavaScript
-* Inventory system
-* Resource collection and placement
-* Reset world functionality
-* Responsive user interface
+* 🎮 Interactive landing page
+* 🎥 Animated video background
+* 🧭 How To Play popup
+* 🔊 Custom menu and tool sound effects
+* 🗺️ Matrix-generated game world
+* 🪓 Functional tools:
+  * Axe
+  * Pickaxe
+  * Shovel
+  * Sword
+* 🎒 Inventory system
+* 🏡 Home button
+* 🔄 Reset world functionality
+* 🌸 Decorative world elements (Steve, dog, bee, flowers, campfire, etc.)
+* 📱 Responsive design for desktop, tablet, and mobile devices
 
 ## Technologies Used
 
 * HTML5
 * CSS3
-* JavaScript (Vanilla JS)
+* JavaScript (ES6)
+* DOM Manipulation
+* CSS Grid
+* Flexbox
 
-## Current Progress
+## Game Mechanics
 
-### Completed
+* Select a tool from the toolbar.
+* Mine the correct type of block.
+* Collected blocks are stored in the inventory.
+* Open the inventory to place collected blocks back into the world.
+* Reset the world at any time using the reset button.
 
-* Project setup
-* HTML structure
-* Landing page
-* Toolbar structure
-* World container
-* Inventory container
+## Project Structure
 
-### In Progress
+```text
+2D-Minecraft/
+│
+├── index.html
+├── style.css
+├── script.js
+│
+├── images/
+├── sounds/
+└── videos/
+```
 
-* CSS styling
-* World generation
-* Tool functionality
-* Inventory logic
+## Future Improvements
 
-## What I Found Difficult
+* Player movement
+* Animated characters
+* Additional world generation
+* More tools and blocks
+* Game save/load functionality
 
-This section will be updated throughout development.
+## Author
 
-## Known Bugs
-
-No known bugs at this stage.
-
-## Assignment Review
-
-So far, the assignment has been a good exercise for practicing JavaScript, DOM manipulation, and planning application structure before implementing game logic.
+**Nagham Daban**
