@@ -77,6 +77,7 @@ body {
   font-size: 30px;
 }
 
+/* Modal */
 .modal {
   position: fixed;
   inset: 0;
@@ -92,19 +93,17 @@ body {
   position: relative;
   width: 90%;
   max-width: 680px;
-
   padding: 50px 35px 35px;
   background: rgba(20, 20, 20, 0.92);
-
   border: 6px solid #777;
   color: rgb(154, 151, 151);
-
   font-family: 'Minecraft', Arial, sans-serif;
 }
 
 .modal.active {
   display: flex;
 }
+
 .close-btn {
   position: absolute;
   top: 10px;
@@ -116,6 +115,7 @@ body {
   cursor: pointer;
 }
 
+/* How To Play Rules */ 
 .rules-list {
   list-style: none;
   padding: 0;
@@ -136,6 +136,7 @@ body {
   object-fit: contain;
 }
 
+/* Game World */
 .game-page {
   min-height: 100vh;
   background: #1b1b1b;
@@ -177,24 +178,22 @@ body {
   background: transparent;
   border: none;
   cursor: pointer;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 6px;
-
   color: white;
   font-family: 'Minecraft', Arial, sans-serif;
   transition: transform 0.2s ease, filter 0.2s ease;
 }
+
 .toolbar-actions {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 15px;
-
   width: 100%;
   margin-bottom: 20px;
 }
@@ -202,15 +201,12 @@ body {
 .action-btn {
   width: 45px;
   height: 45px;
-
   background: transparent;
   border: none;
   cursor: pointer;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   transition: all 0.25s ease;
 }
 
@@ -218,7 +214,6 @@ body {
   width: 100%;
   height: 100%;
   object-fit: contain;
-
   transition: all 0.25s ease;
 }
 
@@ -261,6 +256,8 @@ body {
   opacity: 1;
   font-weight: bold;
 }
+
+/* Inventory */
 .inventory-popup {
   position: absolute;
   top: 80px;
@@ -327,6 +324,8 @@ body {
 .close-inventory-btn:hover {
   color: #f7d45c;
 }
+
+/* Game Tiles */
 .tile {
   width: 60px;
   height: 60px;
@@ -335,40 +334,53 @@ body {
   image-rendering: pixelated;
 }
 
+/* Decorative World Objects */ 
+
 .sky {
   background-image: url("images/sky.jpg");
 }
+
 .cloud{
   background-image: url("images/cloud.jpg");
 }
+
 .grass {
   background-image: url("images/grass.jpg");
 }
+
 .wood {
   background-image: url("images/wood.jpg");
 }
+
 .leaf {
   background-image: url("images/leaf.jpg");
 }
+
 .dirt {
   background-image: url("images/dirt.jpg");
 }
+
 .stone {
   background-image: url("images/stone.jpg");
 }
+
 .diamond {
   background-image: url("images/diamond.jpg");
 }
+
 .green_diamond {
   background-image: url("images/green_diamond.jpg");
 }
+
 .red_diamond {
   background-image: url("images/red_diamond.jpg");
 }
+
 .yellow_diamond {
   background-image: url("images/yellow_diamond.jpg");
 }
 
+/* World Layout */
 .world-section {
   display: flex;
   justify-content: center;
@@ -450,14 +462,17 @@ body {
 }
 .herb2 {
   width: 45px;
-  left: 1020px;   /* Change this to move it left/right */
-  top: 450px;     /* Keep the same height */
+  left: 1020px;  
+  top: 450px;   
 }
 
+/* Responsive Design */
 @media (max-width: 1024px) {
-  body {
+
+body {
   overflow-x: hidden;
 }
+
 .game-layout {
   flex-direction: column;
   align-items: stretch;
@@ -477,6 +492,7 @@ body {
 .world-wrapper {
   min-width: max-content;
 }
+
 .toolbar {
   width: 100%;
   flex-direction: row;
@@ -488,6 +504,7 @@ body {
   width: 90%;
   max-width: 650px;
 }
+
 .menu-btn {
   font-size: 26px;
 }
@@ -495,6 +512,7 @@ body {
 .secondary-btn {
   font-size: 22px;
 }
+
 .modal-content {
   width: 95%;
 }
@@ -507,9 +525,11 @@ body {
   width: 50px;
   height: 50px;
 }
+
 .inventory-popup {
   left: 50%;
   transform: translateX(-50%);
 }
+
 }
 
