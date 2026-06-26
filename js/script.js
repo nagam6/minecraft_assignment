@@ -105,6 +105,18 @@ function canRemoveTile(tool, tileType) {
 }
 function handleTileClick(rowIndex, colIndex) {
   const tileType = worldMatrix[rowIndex][colIndex];
+  if (selectedTool === "inventory" && selectedInventoryItem && tileType === "sky") {
+  worldMatrix[rowIndex][colIndex] = selectedInventoryItem;
+  inventory[selectedInventoryItem]--;
+
+  if (inventory[selectedInventoryItem] === 0) {
+    selectedInventoryItem = null;
+  }
+
+  renderWorld();
+  renderInventory();
+  return;
+}
 
   if (!selectedTool) {
     console.log("Choose a tool first");
@@ -112,8 +124,9 @@ function handleTileClick(rowIndex, colIndex) {
   }
 
   if (canRemoveTile(selectedTool, tileType)) {
-    worldMatrix[rowIndex][colIndex] = "sky";
-    renderWorld();
+   addToInventory(tileType);
+worldMatrix[rowIndex][colIndex] = "sky";
+renderWorld();
   } else {
     console.log("Wrong tool for this tile");
   }
@@ -122,6 +135,51 @@ function handleTileClick(rowIndex, colIndex) {
 renderWorld();
 
 let selectedTool = null;
+let inventory = {};
+let selectedInventoryItem = null;
+
+function addToInventory(tileType) {
+  if (!inventory[tileType]) {
+    inventory[tileType] = 0;
+  }
+
+  inventory[tileType]++;
+  renderInventory();
+}
+
+function renderInventory() {
+  const inventoryList = document.querySelector("#inventory-list");
+
+  inventoryList.innerHTML = "";
+
+  Object.keys(inventory).forEach(function (tileType) {
+    if (inventory[tileType] > 0) {
+      const item = document.createElement("button");
+
+      item.classList.add("inventory-item");
+      item.dataset.tile = tileType;
+
+  item.innerHTML = `
+  <img src="images/${tileType}.jpg" class="inventory-icon" alt="${tileType}">
+  <strong>x${inventory[tileType]}</strong>
+`;
+
+      item.addEventListener("click", function () {
+        selectedInventoryItem = tileType;
+        selectedTool = "inventory";
+      });
+
+      inventoryList.appendChild(item);
+    }
+  });
+}
+const inventoryBtn = document.querySelector('[data-tool="inventory"]');
+const inventoryPanel = document.querySelector("#inventory-panel");
+
+inventoryBtn.addEventListener("click", function () {
+  playClickSound();
+  inventoryPanel.classList.toggle("hidden");
+});
 
 const tools = document.querySelectorAll(".tool");
 
@@ -140,6 +198,13 @@ tools.forEach(tool => {
   });
 });
 
+const closeInventoryBtn = document.querySelector("#close-inventory-btn");
+
+closeInventoryBtn.addEventListener("click", function () {
+  playClickSound();
+  inventoryPanel.classList.add("hidden");
+});
+
 homeBtn.addEventListener("click", () => {
   playClickSound();
 
@@ -152,11 +217,19 @@ homeBtn.addEventListener("click", () => {
 resetBtn.addEventListener("click", () => {
   playClickSound();
 
+  // Restore the world
   for (let row = 0; row < worldMatrix.length; row++) {
     for (let col = 0; col < worldMatrix[row].length; col++) {
       worldMatrix[row][col] = originalWorld[row][col];
     }
   }
 
+  // Clear inventory
+  inventory = {};
+  selectedInventoryItem = null;
+
+  // Update the UI
   renderWorld();
+  renderInventory();
+  inventoryPanel.classList.add("hidden");
 });

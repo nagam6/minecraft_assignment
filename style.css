@@ -261,6 +261,72 @@ body {
   opacity: 1;
   font-weight: bold;
 }
+.inventory-popup {
+  position: absolute;
+  top: 80px;
+  left: 20px;
+  z-index: 30;
+  width: 150px;
+  padding: 15px;
+  background: rgba(20, 20, 20, 0.9);
+  border: 3px solid #777;
+  font-family: 'Minecraft', Arial, sans-serif;
+}
+
+.inventory-popup h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.inventory-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.inventory-item {
+  background: transparent;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 6px;
+  transition: transform 0.2s ease;
+}
+
+.inventory-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  image-rendering: pixelated;
+}
+
+.inventory-item strong {
+  color: white;
+  font-size: 18px;
+  font-family: 'Minecraft', Arial, sans-serif;
+}
+
+.inventory-item:hover {
+  transform: scale(1.08);
+}
+.close-inventory-btn {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.close-inventory-btn:hover {
+  color: #f7d45c;
+}
 .tile {
   width: 60px;
   height: 60px;
@@ -291,16 +357,16 @@ body {
   background-image: url("images/stone.jpg");
 }
 .diamond {
-  background-image: url("images/diamond.webp");
+  background-image: url("images/diamond.jpg");
 }
 .green_diamond {
   background-image: url("images/green_diamond.jpg");
 }
 .red_diamond {
-  background-image: url("images/red_diamond.webp");
+  background-image: url("images/red_diamond.jpg");
 }
 .yellow_diamond {
-  background-image: url("images/yellow_diamond.webp");
+  background-image: url("images/yellow_diamond.jpg");
 }
 
 .world-section {
@@ -387,3 +453,5 @@ body {
   left: 1020px;   /* Change this to move it left/right */
   top: 450px;     /* Keep the same height */
 }
+
+
