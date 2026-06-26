@@ -5,27 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2D Minecraft</title>
   <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
-                
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
+            <!-- Landing Page -->
  <section id="landing-page" class="landing-page">
 
+            <!-- Background Video -->
   <video autoplay muted loop playsinline class="bg-video">
     <source src="videos/live_background.mp4" type="video/mp4">
   </video>
 
   <div class="landing-overlay"></div>
-
+       <!-- Main Menu -->
   <div class="menu-container">
     <img src="images/logo.png" alt="2D Minecraft Logo" class="logo">
-
     <button id="start-btn" class="menu-btn">Craft your Adventure</button>
     <button id="how-to-play-btn" class="menu-btn secondary-btn">Getting started</button>
   </div>
 
-<div id="how-to-play-modal" class="modal">
+         <!-- How To Play Modal -->
+  <div id="how-to-play-modal" class="modal">
       <div class="modal-content">
       <button id="close-modal-btn" class="close-btn">×</button>
 
@@ -58,11 +59,11 @@
   </div>
 
 </section>
-
+           <!-- Game Page -->
 <section id="game-page" class="game-page hidden">
 
  <main class="game-layout">
-
+    <!-- Toolbar -->
   <aside class="toolbar">
 
   <div class="toolbar-actions">
@@ -102,11 +103,11 @@
       <span>inventory</span>
     </button>
   </aside>
-
+      <!-- Game World -->
  <section class="world-section">
   <div class="world-wrapper">
     <div id="world" class="world"></div>
-
+       <!-- Decorative Objects -->
     <img src="images/fire.png" class="world-object fire" alt="Fire">
     <img src="images/steve.png" class="world-object steve" alt="Steve">
     <img src="images/dog.png" class="world-object dog" alt="Dog">
@@ -120,6 +121,7 @@
   </div>
 </section>
 
+            <!-- Inventory Popup -->
 <div id="inventory-panel" class="inventory-popup hidden">
   <button id="close-inventory-btn" class="close-inventory-btn">×</button>
   <h3>Inventory</h3>
